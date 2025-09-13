@@ -1,7 +1,7 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'JM x AMNISIA',
+  title: 'JULIAN MUNYARD EP',
   description: '',
 };
 
