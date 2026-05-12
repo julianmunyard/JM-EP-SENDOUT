@@ -1029,8 +1029,8 @@ export default function Home() {
   }, [])
 
   const [windowZIndices, setWindowZIndices] = useState<Record<string, number>>({
-    player: 10,
-    about: 5,
+    player: 5,
+    about: 12,
     contact: 6,
     mixer: 7,
     instagram: 8,
