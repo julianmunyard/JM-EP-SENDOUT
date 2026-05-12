@@ -473,7 +473,7 @@ const AboutWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
     ? currentSong.title
     : inSongsFolder
       ? 'SONG REFERENCES & INSPO'
-      : 'About Julian Munyard'
+      : 'About'
 
   const showArrows = currentView !== 'home'
 
@@ -654,69 +654,33 @@ const AboutWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
 
           <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
             THESE ARE 7 UNRELEASED SONGS THAT I&apos;VE WRITTEN AND PRODUCED FOR MY NEW EP.
-            I HOPE YOU WILL FIND INTEREST IN WORKING WITH ME ON THIS RELEASE.
           </p>
 
           <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            I&apos;M JULIAN MUNYARD — A 22-YEAR-OLD PRODUCER AND ARTIST FROM AUSTRALIA WHO&apos;S 
-            SPENT THE LAST YEAR DIGGING DEEP INTO THE RARER, MORE OBSCURE SIDE OF EARLY 
-            80S MUSIC, AND I BELIEVE TO HAVE COMPLETED MY FIRST EP INSPIRED BY THIS.
+            THIS EP IS WHAT CAME OUT OF A YEAR SPENT DIGGING DEEP INTO THE RARER, MORE OBSCURE SIDE OF EARLY 80S MUSIC.
           </p>
 
           <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            I WROTE THIS IS COLLECTIONS OF TUNES AS IF IT WAS 1984 AND I ROLLED INTO THE STUDIO WITH A ROLAND JUNO 60, 
+            I WROTE THIS COLLECTION OF TUNES AS IF IT WAS 1984 AND I ROLLED INTO THE STUDIO WITH A ROLAND JUNO 60,
             A LINNDRUM, AND ONE ENGINEER, PLAYING ALL THE PARTS AND ARRANGING THEM.
-            MENTALLY THATS WHERE I WAS, BUT I RECORDED IT IN MY HOME!
-            STUDIO.
+            MENTALLY THAT&apos;S WHERE I WAS, BUT I RECORDED IT IN MY HOME STUDIO.
           </p>
 
           <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            I WAS HEAVILY INSPIRED FROM SONGS RELEASED ON REISSUE LABELS LIKE NUMERO 
-            GROUP AND THE LIKES OF. 80S BOOGIE WAS A LOT LIKE 60&rsquo;S SOUL IN THAT WAY, 
-            THERE WAS JUST SO MUCH OF IT CREATED AND NOT ALL OF IT WAS SUCCESSFUL, SO 
-            YOU HAVE THESE GREAT TRACKS THAT GOT LOST ALONG THE WAY.
+            I WAS HEAVILY INSPIRED BY SONGS RELEASED ON REISSUE LABELS LIKE NUMERO
+            GROUP AND THE LIKES. 80S BOOGIE WAS A LOT LIKE 60&rsquo;S SOUL IN THAT WAY —
+            THERE WAS JUST SO MUCH OF IT CREATED AND NOT ALL OF IT WAS SUCCESSFUL, SO
+            YOU HAVE THESE GREAT TRACKS THAT GOT LOST ALONG THE WAY. THAT&apos;S THE WORLD I WANTED THESE SONGS TO LIVE IN.
           </p>
 
           <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            
+            I PLAYED, ARRANGED AND WROTE IT ALL.
           </p>
 
           <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            
+          THANK YOU FOR TAKING THE TIME TO LISTEN.
           </p>
 
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-          </p>
-
-
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-           I&apos;VE SPENT THE LAST LITTLE WHILE WRITING AND PRODUCING THE MUSIC, AND NOW I FEEL IT&apos;S TIME TO DELIVER IT WELL.
-          </p>
-
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            I&apos;M NOT TRYING TO GET CAUGHT UP IN A "BIG ROLLOUT" MINDSET, BECAUSE I BELIEVE THIS CAN HINDER A PROJECT - BUT WHAT I REALLY CARE ABOUT IS HOW IT LOOKS, EVERYTHING SHOULD ALIGN AESTHETICALLY AND SONICALLY.
-          </p>
-
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            THE REAL CATCH IS VIDEOS, WHICH FOR ME MEANS SHOOTING ON 16MM FILM OR VHS AND GETTING VISUALISERS FROM CREATORS LIKE <a href="https://www.jackh.ca/" target="_blank" rel="noopener noreferrer" style={{ color: 'red', textDecoration: 'underline' }}>DIGITAL JOY,</a> AND <a href="https://www.instagram.com/seanstle/" target="_blank" rel="noopener noreferrer" style={{ color: 'red', textDecoration: 'underline' }}>SEAN MCGUIRKWHO,</a> WHO I REALLY ADMIRE - A VIDEO BUDGET FOR THIS KIND OF THING WOULD GO A LONG WAY, BECAUSE I VIEW AESTHETIC AS VERY IMPORTANT FOR THE STYLE I'M GOING FOR.
-          </p>
-
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            I DON&apos;T WANT THESE THINGS FOR THE SAKE OF HAVING THEM, OR TO JUST SEEM COOL, I WANT TO BUILD A COMMUNITY OF PEOPLE THAT LIKE THESE THINGS. I THINK I&apos;VE TOUCHED ON THIS IN THE PAST WITH MY INSTAGRAM, BUT I WANT TO GO DEEPER.
-          </p>
-
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            I LOVE BUILDING WEBSITES, THE ONE THAT YOU&apos;RE ON RIGHT NOW WAS BUILT BY ME, AND I&apos;M EXCITED BY THE IDEA OF MAKING THESE MORE COMMUNITY BASED, WHERE I CAN SHARE THIS OLD STYLE WORLD WITH OTHERS, PEOPLE CAN HAVE ACCOUNTS, UPLOAD REMIXES OF SOME OF THE EP SONGS IF I PROVIDED STEMS, UPLOAD THEIR OWN MUSIC - I COULD GO A LOT OF DIFFERENT WAYS WITH IT.
-          </p>
-
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            I SEE MUSIC, WEBSITES AND VIDEOS TO BE AN ENTIRE UNIVERSE WHICH IS &apos;JULIAN&apos; 
-          </p>
-
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-          THANK YOU THANK YOU THANK YOU FOR TAKING TIME TO CHECK OUT MY MUSIC. 
-          </p>        
-          
           <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
             - JULIAN
           </p>
