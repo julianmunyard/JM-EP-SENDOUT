@@ -10,6 +10,7 @@ import { TrackList } from './track-list'
 interface AudioPlayerProps {
   tracks: AudioTrack[]
   cardId: string
+  lockedMessages?: string[]
   looping?: boolean
   autoplay?: boolean
   reverbConfig?: ReverbConfig
@@ -80,6 +81,7 @@ function useSpeedSliderTouch(
 export function AudioPlayer({
   tracks,
   cardId,
+  lockedMessages,
   looping = false,
   autoplay = false,
   reverbConfig,
@@ -138,6 +140,25 @@ export function AudioPlayer({
     player.queuePlayOnLoad()
     setCurrentTrackIndex(index)
   }
+
+  // When someone tries to play a locked track, play a cheeky voice message,
+  // cycling through the list on each attempt. Reuses one element so a new
+  // attempt cuts off the previous message instead of stacking.
+  const lockedMsgRef = useRef<HTMLAudioElement | null>(null)
+  const lockedMsgCursor = useRef(0)
+  const handleLockedAttempt = useCallback(() => {
+    if (!lockedMessages || lockedMessages.length === 0) return
+    const url = lockedMessages[lockedMsgCursor.current % lockedMessages.length]
+    lockedMsgCursor.current += 1
+    let el = lockedMsgRef.current
+    if (!el) {
+      el = new Audio()
+      lockedMsgRef.current = el
+    }
+    el.src = url
+    el.currentTime = 0
+    el.play().catch(() => {})
+  }, [lockedMessages])
 
   // Find the nearest unlocked track in the given direction, wrapping around.
   // Returns null if there is no other unlocked track to move to.
@@ -382,6 +403,7 @@ export function AudioPlayer({
             tracks={tracks}
             currentTrackIndex={currentTrackIndex}
             onTrackSelect={handleTrackSelect}
+            onLockedAttempt={handleLockedAttempt}
             foregroundColor={psColor}
             elementBgColor="transparent"
           />

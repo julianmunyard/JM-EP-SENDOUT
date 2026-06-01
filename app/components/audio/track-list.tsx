@@ -6,6 +6,7 @@ interface TrackListProps {
   tracks: AudioTrack[]
   currentTrackIndex: number
   onTrackSelect: (index: number) => void
+  onLockedAttempt?: () => void
   foregroundColor?: string
   elementBgColor?: string
   className?: string
@@ -51,6 +52,7 @@ export function TrackList({
   tracks,
   currentTrackIndex,
   onTrackSelect,
+  onLockedAttempt,
   foregroundColor,
   elementBgColor,
   className = ''
@@ -69,8 +71,7 @@ export function TrackList({
         return (
           <button
             key={track.id}
-            onClick={() => { if (!locked) onTrackSelect(index) }}
-            disabled={locked}
+            onClick={() => { if (locked) { onLockedAttempt?.() } else { onTrackSelect(index) } }}
             aria-disabled={locked}
             className="group relative w-full px-3 py-2 rounded-md text-left transition-all"
             style={{

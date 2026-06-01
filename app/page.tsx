@@ -379,6 +379,11 @@ const PlayerWindow = ({ isOpen, onClose, zIndex, onBringToFront }: PlayerWindowP
         <AudioPlayer
           tracks={tracks}
           cardId="label5-blanket-player"
+          lockedMessages={[
+            `${BP}/locked-messages/uh-uh-uhh.mp3`,
+            `${BP}/locked-messages/you-cant-play-this-one-yet-buddy.mp3`,
+            `${BP}/locked-messages/transfer-me.mp3`,
+          ]}
           foregroundColor="#fff"
           fontFamily="ChiKareGo2, pixChicago, Monaco, monospace"
           reverbConfig={{
