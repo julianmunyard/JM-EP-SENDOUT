@@ -961,7 +961,8 @@ const VideoWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
             width: '100%',
             height: '100%',
             display: 'block',
-            objectFit: 'cover'
+            objectFit: 'cover',
+            objectPosition: 'top'
           }}
         />
 
