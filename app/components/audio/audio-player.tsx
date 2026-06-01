@@ -156,7 +156,7 @@ export function AudioPlayer({
       lockedMsgRef.current = el
     }
     el.src = url
-    el.volume = 0.3
+    el.volume = 0.1
     el.currentTime = 0
     el.play().catch(() => {})
   }, [lockedMessages])
