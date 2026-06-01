@@ -27,7 +27,7 @@ body {
 
 @font-face {
   font-family: 'Village';
-  src: url('/fonts/Village.ttf') format('truetype');
+  src: url('/ep/fonts/Village.ttf') format('truetype');
   font-display: swap;
 }
 

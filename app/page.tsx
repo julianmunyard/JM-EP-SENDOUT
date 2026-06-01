@@ -5,6 +5,11 @@ import { SiSpotify, SiApplemusic, SiSoundcloud, SiYoutubemusic, SiBandcamp, SiTi
 import { AudioPlayer } from '@/app/components/audio/audio-player';
 import type { AudioTrack } from '@/app/types/audio';
 
+// The app is served under munyard.art/ep (Next.js basePath). basePath auto-prefixes
+// /_next, next/link and next/image, but NOT hardcoded public-asset paths in plain
+// <img>/<audio>/@font-face — so prefix those manually with BP.
+const BP = '/ep';
+
 const DSP_LINKS = [
   { name: 'Spotify',       url: '#', Icon: SiSpotify },
   { name: 'Apple Music',   url: '#', Icon: SiApplemusic },
@@ -318,13 +323,13 @@ interface PlayerWindowProps {
 
 const PlayerWindow = ({ isOpen, onClose, zIndex, onBringToFront }: PlayerWindowProps) => {
   const tracks: AudioTrack[] = [
-    { id: 't1', title: 'BACK OF MY CAR',           artist: '', duration: 0, audioUrl: '/songs/back-of-my-car.mp3',         storagePath: '', locked: true },
-    { id: 't2', title: 'GET UP',                   artist: '', duration: 0, audioUrl: '/songs/get-up.mp3',                 storagePath: '' },
-    { id: 't3', title: 'LOVING SPELL',             artist: '', duration: 0, audioUrl: '/songs/loving-spell.mp3',           storagePath: '', locked: true },
-    { id: 't4', title: 'MILLIONAIRE',              artist: '', duration: 0, audioUrl: '/songs/millionaire.mp3',            storagePath: '', locked: true },
-    { id: 't5', title: 'NEVER GONNA (GIVE YOU UP)',artist: '', duration: 0, audioUrl: '/songs/never-gonna-give-you-up.mp3',storagePath: '', locked: true },
-    { id: 't6', title: "THE RAIN (IT'S POURING)",  artist: '', duration: 0, audioUrl: '/songs/the-rain-its-pouring.mp3',   storagePath: '', locked: true },
-    { id: 't7', title: 'YOU HAD IT COMING',        artist: '', duration: 0, audioUrl: '/songs/you-had-it-coming.mp3',      storagePath: '', locked: true },
+    { id: 't1', title: 'BACK OF MY CAR',           artist: '', duration: 0, audioUrl: `${BP}/songs/back-of-my-car.mp3`,         storagePath: '', locked: true },
+    { id: 't2', title: 'GET UP',                   artist: '', duration: 0, audioUrl: `${BP}/songs/get-up.mp3`,                 storagePath: '' },
+    { id: 't3', title: 'LOVING SPELL',             artist: '', duration: 0, audioUrl: `${BP}/songs/loving-spell.mp3`,           storagePath: '', locked: true },
+    { id: 't4', title: 'MILLIONAIRE',              artist: '', duration: 0, audioUrl: `${BP}/songs/millionaire.mp3`,            storagePath: '', locked: true },
+    { id: 't5', title: 'NEVER GONNA (GIVE YOU UP)',artist: '', duration: 0, audioUrl: `${BP}/songs/never-gonna-give-you-up.mp3`,storagePath: '', locked: true },
+    { id: 't6', title: "THE RAIN (IT'S POURING)",  artist: '', duration: 0, audioUrl: `${BP}/songs/the-rain-its-pouring.mp3`,   storagePath: '', locked: true },
+    { id: 't7', title: 'YOU HAD IT COMING',        artist: '', duration: 0, audioUrl: `${BP}/songs/you-had-it-coming.mp3`,      storagePath: '', locked: true },
   ]
 
   // Keep the big desktop size everywhere, but on a narrow phone clamp the
@@ -365,7 +370,7 @@ const PlayerWindow = ({ isOpen, onClose, zIndex, onBringToFront }: PlayerWindowP
       zIndex={zIndex}
       allowScroll={true}
       translucent={true}
-      backgroundImage="/player-bg.gif"
+      backgroundImage={`${BP}/player-bg.gif`}
       initialPosition={{ x: layout.x, y: layout.y }}
       width={layout.width}
       height={layout.height}
@@ -407,13 +412,13 @@ interface SongFolder {
 }
 
 const ABOUT_SONGS: SongFolder[] = [
-  { id: 'back-of-my-car', title: 'BACK OF MY CAR',           artwork: '/song-artwork.png',      inspiration: 'Inspiration notes for Back Of My Car go here.',        references: [] },
-  { id: 'get-up',         title: 'GET UP',                   artwork: '/song-artwork.png',      inspiration: 'The System were a big influence on this tune, particularly the album X-Periment from 84.', references: ['/inspo/get-up/the-system-1.jpeg', '/inspo/get-up/the-system-studio.jpg'] },
-  { id: 'loving-spell',   title: 'LOVING SPELL',             artwork: '/song-loving-spell.png', inspiration: 'Inspiration notes for Loving Spell go here.',          references: [] },
-  { id: 'millionaire',    title: 'MILLIONAIRE',              artwork: '/song-millionaire.png',  inspiration: 'Inspiration notes for Millionaire go here.',           references: [] },
-  { id: 'never-gonna',    title: 'NEVER GONNA (GIVE YOU UP)',artwork: '/song-never-gonna.png',  inspiration: 'Inspiration notes for Never Gonna go here.',           references: [] },
-  { id: 'the-rain',       title: "THE RAIN (IT'S POURING)",  artwork: '/song-artwork.png',      inspiration: "Inspiration notes for The Rain (It's Pouring) go here.", references: [] },
-  { id: 'you-had-it',     title: 'YOU HAD IT COMING',        artwork: '/song-you-had-it.png',   inspiration: 'Inspiration notes for You Had It Coming go here.',     references: [] },
+  { id: 'back-of-my-car', title: 'BACK OF MY CAR',           artwork: `${BP}/song-artwork.png`,      inspiration: 'Inspiration notes for Back Of My Car go here.',        references: [] },
+  { id: 'get-up',         title: 'GET UP',                   artwork: `${BP}/song-artwork.png`,      inspiration: 'The System were a big influence on this tune, particularly the album X-Periment from 84.', references: [`${BP}/inspo/get-up/the-system-1.jpeg`, `${BP}/inspo/get-up/the-system-studio.jpg`] },
+  { id: 'loving-spell',   title: 'LOVING SPELL',             artwork: `${BP}/song-loving-spell.png`, inspiration: 'Inspiration notes for Loving Spell go here.',          references: [] },
+  { id: 'millionaire',    title: 'MILLIONAIRE',              artwork: `${BP}/song-millionaire.png`,  inspiration: 'Inspiration notes for Millionaire go here.',           references: [] },
+  { id: 'never-gonna',    title: 'NEVER GONNA (GIVE YOU UP)',artwork: `${BP}/song-never-gonna.png`,  inspiration: 'Inspiration notes for Never Gonna go here.',           references: [] },
+  { id: 'the-rain',       title: "THE RAIN (IT'S POURING)",  artwork: `${BP}/song-artwork.png`,      inspiration: "Inspiration notes for The Rain (It's Pouring) go here.", references: [] },
+  { id: 'you-had-it',     title: 'YOU HAD IT COMING',        artwork: `${BP}/song-you-had-it.png`,   inspiration: 'Inspiration notes for You Had It Coming go here.',     references: [] },
 ]
 
 function NavArrow({ direction, disabled, onClick }: { direction: 'back' | 'forward', disabled: boolean, onClick: () => void }) {
@@ -630,7 +635,7 @@ const AboutWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
             }}
           >
             <img
-              src="/icon-mixer.png"
+              src={`${BP}/icon-mixer.png`}
               alt="Song references and inspo"
               style={{
                 width: '72px',
@@ -651,10 +656,6 @@ const AboutWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
             </span>
           </div>
         </div>
-
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            THESE ARE 7 UNRELEASED SONGS THAT I&apos;VE WRITTEN AND PRODUCED FOR MY NEW EP.
-          </p>
 
           <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
             THIS EP IS WHAT CAME OUT OF A YEAR SPENT DIGGING DEEP INTO THE RARER, MORE OBSCURE SIDE OF EARLY 80S MUSIC.
@@ -691,40 +692,6 @@ const AboutWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
     </Window>
   )
 }
-
-const ContactWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowProps) => (
-  <Window
-    title="Contact Info"
-    isOpen={isOpen}
-    onClose={onClose}
-    onBringToFront={onBringToFront}
-    zIndex={zIndex}
-    initialPosition={{ x: 300, y: 250 }}
-    width={300}
-    height={180}
-    chromeColor="#ffffff"
-    chromeBorder="#000"
-    chromeTextColor="#000"
-    innerColor="#ffffff"
-    innerBorder="#000"
-    innerTextColor="#000"
-  >
-    <div style={{ fontSize: '13px', textAlign: 'center' }}>
-      <p style={{ marginBottom: '8px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>EMAIL:</p>
-      <p style={{ marginBottom: '12px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>JULIAN.MUNYARD@GMAIL.COM</p>
-      
-      <p style={{ marginBottom: '8px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>INSTAGRAM:</p>
-      <a 
-        href="https://www.instagram.com/julianmunyard/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ color: 'blue', textDecoration: 'underline', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}
-      >
-        @JULIANMUNYARD
-      </a>
-    </div>
-  </Window>
-)
 
 const MunyardMixerWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowProps) => {
   // CHANGE THIS HEX CODE TO ANY COLOR YOU WANT
@@ -944,7 +911,7 @@ const VideoWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
         }}
       >
         <video
-          src="/giorgio.mp4"
+          src={`${BP}/giorgio.mp4`}
           muted
           autoPlay
           loop
@@ -978,7 +945,6 @@ export default function Home() {
   const [openWindows, setOpenWindows] = useState<Record<string, boolean>>({
     player: false,
     about: false,
-    contact: false,
     mixer: false,
     instagram: false,
     video: false,
@@ -995,7 +961,6 @@ export default function Home() {
   const [windowZIndices, setWindowZIndices] = useState<Record<string, number>>({
     player: 5,
     about: 12,
-    contact: 6,
     mixer: 7,
     instagram: 8,
     video: 9,
@@ -1056,35 +1021,35 @@ export default function Home() {
       <style>{`
         @font-face {
           font-family: 'pixChicago';
-          src: url('/fonts/pixChicago.ttf') format('truetype');
+          src: url('${BP}/fonts/pixChicago.ttf') format('truetype');
           font-weight: normal;
           font-style: normal;
         }
 
         @font-face {
           font-family: 'VCR_OSD_MONO';
-          src: url('/fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
+          src: url('${BP}/fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
           font-weight: normal;
           font-style: normal;
         }
 
         @font-face {
           font-family: 'NewYork';
-          src: url('/fonts/new-york.ttf') format('truetype');
+          src: url('${BP}/fonts/new-york.ttf') format('truetype');
           font-weight: normal;
           font-style: normal;
         }
 
         @font-face {
           font-family: 'Ishmeria';
-          src: url('/fonts/Ishmeria.otf') format('opentype');
+          src: url('${BP}/fonts/Ishmeria.otf') format('opentype');
           font-weight: normal;
           font-style: normal;
         }
 
         @font-face {
           font-family: 'ChiKareGo2';
-          src: url('/fonts/ChiKareGo2.ttf') format('truetype');
+          src: url('${BP}/fonts/ChiKareGo2.ttf') format('truetype');
           font-weight: normal;
           font-style: normal;
         }
@@ -1102,7 +1067,7 @@ export default function Home() {
           margin: 0;
           padding: 0;
           font-family: 'ChiKareGo2', 'pixChicago', Monaco, monospace;
-          background: url('/player-bg.png') repeat,
+          background: url('${BP}/player-bg.png') repeat,
                       linear-gradient(135deg, #008080 0%, #20b2aa 100%);
           background-size: 256px 256px, cover;
           overflow: hidden;
@@ -1135,10 +1100,9 @@ export default function Home() {
 
           .desk-icon-about    { top: 6% !important;  left: 6% !important;  right: auto !important; }
           .desk-icon-player   { top: 6% !important;  right: 6% !important; left: auto !important; }
-          .desk-icon-contact  { top: 28% !important; left: 6% !important;  right: auto !important; }
-          .desk-icon-video    { top: 28% !important; right: 6% !important; left: auto !important; }
-          .desk-icon-photos   { top: 50% !important; left: 6% !important;  right: auto !important; }
-          .desk-icon-instagram{ top: 50% !important; right: 6% !important; left: auto !important; }
+          .desk-icon-video    { top: 28% !important; left: 6% !important;  right: auto !important; }
+          .desk-icon-photos   { top: 28% !important; right: 6% !important; left: auto !important; }
+          .desk-icon-instagram{ top: 50% !important; left: 6% !important;  right: auto !important; }
         }
 
         * {
@@ -1232,7 +1196,7 @@ export default function Home() {
               }}
             >
               <img
-                src="/icon-about.png"
+                src={`${BP}/icon-about.png`}
                 alt="About"
                 style={{
                   width: '56px',
@@ -1274,7 +1238,7 @@ export default function Home() {
               }}
             >
               <img
-                src="/icon-player.png"
+                src={`${BP}/icon-player.png`}
                 alt="Player"
                 style={{
                   width: '56px',
@@ -1290,48 +1254,6 @@ export default function Home() {
                 textAlign: 'center'
               }}>
                 PLAYER
-              </span>
-            </div>
-
-            <div
-              className="desk-icon desk-icon-contact"
-              onClick={() => openWindow('contact')}
-              onKeyDown={(e: React.KeyboardEvent) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  openWindow('contact');
-                }
-              }}
-              role="button"
-              tabIndex={0}
-              style={{
-                display: 'flex',
-                position: 'absolute', top: '54%', left: '13%',
-                flexDirection: 'column',
-                alignItems: 'center',
-                cursor: 'pointer',
-                background: 'transparent',
-                padding: '8px',
-                borderRadius: '4px',
-                minWidth: '80px'
-              }}
-            >
-              <img
-                src="/icon-contact.png"
-                alt="Contact"
-                style={{
-                  width: '56px',
-                  height: '56px',
-                  marginBottom: '4px',
-                  objectFit: 'contain',
-                }}
-              />
-              <span style={{ 
-                fontFamily: 'ChiKareGo2, pixChicago, Monaco, monospace', 
-                fontSize: '13px', 
-                color: 'white',
-                textAlign: 'center'
-              }}>
-                CONTACT
               </span>
             </div>
 
@@ -1358,7 +1280,7 @@ export default function Home() {
               }}
             >
               <img
-                src="/icon-video.png"
+                src={`${BP}/icon-video.png`}
                 alt="Video"
                 style={{
                   width: '56px',
@@ -1400,7 +1322,7 @@ export default function Home() {
               }}
             >
               <img
-                src="/folder-icon.png"
+                src={`${BP}/folder-icon.png`}
                 alt="Photos"
                 style={{
                   width: '56px',
@@ -1443,7 +1365,7 @@ export default function Home() {
             }}
           >
             <img
-              src="/icon-instagram.png"
+              src={`${BP}/icon-instagram.png`}
               alt="Instagram"
               style={{
                 width: '56px',
@@ -1477,14 +1399,7 @@ export default function Home() {
           onBringToFront={() => bringToFront('about')}
         />
         
-        <ContactWindow 
-          isOpen={openWindows.contact} 
-          onClose={() => closeWindow('contact')}
-          zIndex={windowZIndices.contact}
-          onBringToFront={() => bringToFront('contact')}
-        />
-        
-        <MunyardMixerWindow 
+        <MunyardMixerWindow
           isOpen={openWindows.mixer} 
           onClose={() => closeWindow('mixer')}
           zIndex={windowZIndices.mixer}

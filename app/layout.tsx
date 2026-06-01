@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link
           rel="preload"
-          href="/fonts/Village.ttf"
+          href="/ep/fonts/Village.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"
