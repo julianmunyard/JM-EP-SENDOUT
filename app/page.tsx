@@ -19,6 +19,10 @@ const DSP_LINKS = [
   { name: 'Tidal',         url: '#', Icon: SiTidal },
 ];
 
+// Hidden until the songs are released — flip back to true to show the
+// streaming-service icons (Spotify, Apple Music, etc.) in the player.
+const SHOW_DSP_LINKS = false;
+
 function DspBar() {
   return (
     <div style={{
@@ -395,7 +399,7 @@ const PlayerWindow = ({ isOpen, onClose, zIndex, onBringToFront }: PlayerWindowP
             enabled: true,
           }}
         />
-        <DspBar />
+        {SHOW_DSP_LINKS && <DspBar />}
       </div>
     </Window>
   )
