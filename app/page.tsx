@@ -414,11 +414,12 @@ interface SongFolder {
   artwork: string
   inspiration: string
   references: string[]
+  instruments?: string[]
 }
 
 const ABOUT_SONGS: SongFolder[] = [
   { id: 'back-of-my-car', title: 'BACK OF MY CAR',           artwork: `${BP}/song-artwork.png`,      inspiration: 'Inspiration notes for Back Of My Car go here.',        references: [] },
-  { id: 'get-up',         title: 'GET UP',                   artwork: `${BP}/song-artwork.png`,      inspiration: 'The System were a big influence on this tune, particularly the album X-Periment from 84.', references: [`${BP}/inspo/get-up/the-system-1.jpeg`, `${BP}/inspo/get-up/the-system-studio.jpg`] },
+  { id: 'get-up',         title: 'GET UP',                   artwork: `${BP}/song-artwork.png`,      inspiration: 'The System were a big influence on this tune, particularly the album X-Periment from 84.', references: [`${BP}/inspo/get-up/the-system-1.jpeg`, `${BP}/inspo/get-up/the-system-studio.jpg`], instruments: [`${BP}/instruments/juno-6.png`, `${BP}/instruments/dx7.png`, `${BP}/instruments/dmx.jpg`] },
   { id: 'loving-spell',   title: 'LOVING SPELL',             artwork: `${BP}/song-loving-spell.png`, inspiration: 'Inspiration notes for Loving Spell go here.',          references: [] },
   { id: 'millionaire',    title: 'MILLIONAIRE',              artwork: `${BP}/song-millionaire.png`,  inspiration: 'Inspiration notes for Millionaire go here.',           references: [] },
   { id: 'never-gonna',    title: 'NEVER GONNA (GIVE YOU UP)',artwork: `${BP}/song-never-gonna.png`,  inspiration: 'Inspiration notes for Never Gonna go here.',           references: [] },
@@ -550,6 +551,18 @@ const AboutWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
                   <img key={i} src={ref} alt="" style={{ width: '100%', border: '1px solid #000', borderRadius: '6px', imageRendering: 'pixelated' }} />
                 ))}
               </div>
+            )}
+            {currentSong.instruments && currentSong.instruments.length > 0 && (
+              <>
+                <p style={{ fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px', fontWeight: 'bold', margin: '16px 0 8px 0' }}>
+                  INSTRUMENTS
+                </p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '8px' }}>
+                  {currentSong.instruments.map((src, i) => (
+                    <img key={i} src={src} alt="" style={{ width: '100%', border: '1px solid #000', borderRadius: '6px' }} />
+                  ))}
+                </div>
+              </>
             )}
           </div>
         ) : inSongsFolder ? (
