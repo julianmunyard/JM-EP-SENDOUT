@@ -864,6 +864,18 @@ const InstagramWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWind
   )
 }
 
+const PHOTOS = [
+  'vinyl-art-1.jpg',
+  'vinyl-art-2.jpg',
+  'vinyl-art-6.jpg',
+  'vinyl-art-8.jpg',
+  'vinyl-art-9.jpg',
+  'vinyl-art-10.jpg',
+  'vinyl-art-11.jpg',
+  'attic.jpg',
+  'attic-2.jpg',
+]
+
 const PhotosWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowProps) => (
   <Window
     title="Photos"
@@ -881,7 +893,31 @@ const PhotosWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowP
     innerBorder="#000"
     innerTextColor="#000"
   >
-    <div style={{ height: '100%' }} />
+    <div
+      data-no-drag
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        gap: '6px',
+      }}
+    >
+      {PHOTOS.map((name) => (
+        <a
+          key={name}
+          href={`${BP}/photos/${name}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'block', border: '1px solid #000', background: '#000', lineHeight: 0 }}
+        >
+          <img
+            src={`${BP}/photos/${name}`}
+            alt=""
+            loading="lazy"
+            style={{ width: '100%', aspectRatio: '4 / 5', objectFit: 'cover', display: 'block' }}
+          />
+        </a>
+      ))}
+    </div>
   </Window>
 )
 
