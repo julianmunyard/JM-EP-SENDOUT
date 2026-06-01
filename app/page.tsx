@@ -559,7 +559,7 @@ const AboutWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
                 </p>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '8px' }}>
                   {currentSong.instruments.map((src, i) => (
-                    <img key={i} src={src} alt="" style={{ width: '100%', border: '1px solid #000', borderRadius: '6px' }} />
+                    <img key={i} src={src} alt="" style={{ width: '100%' }} />
                   ))}
                 </div>
               </>
