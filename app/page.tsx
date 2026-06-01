@@ -750,114 +750,6 @@ const MunyardMixerWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleW
   )
 }
 
-const InstagramWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowProps) => {
-  const contentRef = useRef<HTMLDivElement>(null)
-
-  const instagramEmbeds = [
-    {
-      url: "https://www.instagram.com/reel/C8jY0FmSVVo/?utm_source=ig_embed&utm_campaign=loading",
-      id: "C8jY0FmSVVo"
-    },
-    {
-      url: "https://www.instagram.com/reel/C5O4q7LS4Zn/?utm_source=ig_embed&utm_campaign=loading", 
-      id: "C5O4q7LS4Zn"
-    },
-    {
-      url: "https://www.instagram.com/reel/C9gsFPwyydd/?utm_source=ig_embed&utm_campaign=loading",
-      id: "C9gsFPwyydd"
-    },
-    {
-      url: "https://www.instagram.com/reel/C9MHLVxS2W_/?utm_source=ig_embed&utm_campaign=loading",
-      id: "C9MHLVxS2W_"
-    }
-  ]
-
-  useEffect(() => {
-    if (isOpen && contentRef.current) {
-      // Clear previous content
-      contentRef.current.innerHTML = ''
-      
-      // Create all iframes in a scrollable container
-      instagramEmbeds.forEach((embed, index) => {
-        const iframe = document.createElement('iframe')
-        iframe.src = `https://www.instagram.com/p/${embed.id}/embed/`
-        iframe.width = '100%'
-        iframe.height = '600'
-        iframe.frameBorder = '0'
-        iframe.scrolling = 'no'
-        iframe.style.border = 'none'
-        iframe.style.borderRadius = '4px'
-        iframe.style.marginBottom = '20px'
-        
-        if (contentRef.current) {
-          contentRef.current.appendChild(iframe)
-        }
-      })
-    }
-  }, [isOpen])
-
-  return (
-    <Window
-      title="Instagram"
-      isOpen={isOpen}
-      onClose={onClose}
-      onBringToFront={onBringToFront}
-      zIndex={zIndex}
-      initialPosition={{ x: 400, y: 150 }}
-      width={420}
-      height={700}
-      allowScroll={true}
-      chromeColor="#ffffff"
-      chromeBorder="#000"
-      chromeTextColor="#000"
-      innerColor="#ffffff"
-      innerBorder="#000"
-      innerTextColor="#000"
-    >
-      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-        <div style={{ marginBottom: '12px', textAlign: 'center' }}>
-          <p style={{ margin: '0 0 8px 0', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-           
-          </p>
-        </div>
-
-        <div 
-          ref={contentRef}
-          style={{
-            flex: 1,
-            background: '#f8f8f8',
-            border: '1px solid #ccc',
-            borderRadius: '4px',
-            overflow: 'auto',
-            padding: '10px'
-          }}
-        />
-
-        <div style={{ marginTop: '12px', textAlign: 'center' }}>
-          <a 
-            href="https://www.instagram.com/julianmunyard/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-block',
-              background: '#ffffffff',
-              border: '1px outset #6b555bff',
-              padding: '6px 12px',
-              textDecoration: 'none',
-              color: 'black',
-              fontFamily: 'ChiKareGo2, NewYork, Times, serif',
-              fontSize: '11px',
-              borderRadius: '4px'
-            }}
-          >
-            VISIT PAGE
-          </a>
-        </div>
-      </div>
-    </Window>
-  )
-}
-
 const PHOTOS = [
   'vinyl-art-1.jpg',
   'vinyl-art-2.jpg',
@@ -982,7 +874,6 @@ export default function Home() {
     player: false,
     about: false,
     mixer: false,
-    instagram: false,
     video: false,
     photos: false,
     folder: false
@@ -998,7 +889,6 @@ export default function Home() {
     player: 5,
     about: 12,
     mixer: 7,
-    instagram: 8,
     video: 9,
     photos: 11
   })
@@ -1138,7 +1028,6 @@ export default function Home() {
           .desk-icon-player   { top: 6% !important;  right: 6% !important; left: auto !important; }
           .desk-icon-video    { top: 28% !important; left: 6% !important;  right: auto !important; }
           .desk-icon-photos   { top: 28% !important; right: 6% !important; left: auto !important; }
-          .desk-icon-instagram{ top: 50% !important; left: 6% !important;  right: auto !important; }
         }
 
         * {
@@ -1378,47 +1267,6 @@ export default function Home() {
               </span>
             </div>
 
-            <div
-              className="desk-icon desk-icon-instagram"
-              onClick={() => openWindow('instagram')}
-              onKeyDown={(e: React.KeyboardEvent) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                openWindow('instagram');
-              }
-            }}
-            role="button"
-            tabIndex={0}
-            style={{
-              display: 'flex',
-                position: 'absolute', top: '64%', right: '11%',
-              flexDirection: 'column',
-              alignItems: 'center',
-              cursor: 'pointer',
-              background: 'transparent',
-              padding: '8px',
-              borderRadius: '4px',
-              minWidth: '80px'
-            }}
-          >
-            <img
-              src={`${BP}/icon-instagram.png`}
-              alt="Instagram"
-              style={{
-                width: '56px',
-                height: '56px',
-                marginBottom: '4px',
-                objectFit: 'contain'
-              }}
-            />
-            <span style={{ 
-              fontFamily: 'ChiKareGo2, pixChicago, Monaco, monospace', 
-              fontSize: '13px', 
-              color: 'white',
-              textAlign: 'center'
-            }}>
-              INSTAGRAM
-            </span>
-          </div>
         </>
 
         <PlayerWindow 
@@ -1449,13 +1297,6 @@ export default function Home() {
           onBringToFront={() => bringToFront('video')}
         />
         
-        <InstagramWindow
-          isOpen={openWindows.instagram}
-          onClose={() => closeWindow('instagram')}
-          zIndex={windowZIndices.instagram}
-          onBringToFront={() => bringToFront('instagram')}
-        />
-
         <PhotosWindow
           isOpen={openWindows.photos}
           onClose={() => closeWindow('photos')}
