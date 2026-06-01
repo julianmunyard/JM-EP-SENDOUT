@@ -667,12 +667,6 @@ const AboutWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
           </p>
 
           <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
-            I WROTE THIS COLLECTION OF TUNES AS IF IT WAS 1984 AND I ROLLED INTO THE STUDIO WITH A ROLAND JUNO 60,
-            A LINNDRUM, AND ONE ENGINEER, PLAYING ALL THE PARTS AND ARRANGING THEM.
-            MENTALLY THAT&apos;S WHERE I WAS, BUT I RECORDED IT IN MY HOME STUDIO.
-          </p>
-
-          <p style={{ marginBottom: '16px', fontFamily: 'ChiKareGo2, NewYork, Times, serif', fontSize: '13px' }}>
             I WAS HEAVILY INSPIRED BY SONGS RELEASED ON REISSUE LABELS LIKE NUMERO
             GROUP AND THE LIKES. 80S BOOGIE WAS A LOT LIKE 60&rsquo;S SOUL IN THAT WAY —
             THERE WAS JUST SO MUCH OF IT CREATED AND NOT ALL OF IT WAS SUCCESSFUL, SO
