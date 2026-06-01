@@ -139,6 +139,19 @@ export function AudioPlayer({
     setCurrentTrackIndex(index)
   }
 
+  // Find the nearest unlocked track in the given direction, wrapping around.
+  // Returns null if there is no other unlocked track to move to.
+  const findAdjacentUnlocked = (direction: 1 | -1): number | null => {
+    if (tracks.length === 0) return null
+    let idx = currentTrackIndex
+    for (let i = 0; i < tracks.length; i++) {
+      idx = (idx + direction + tracks.length) % tracks.length
+      if (idx === currentTrackIndex) break
+      if (!tracks[idx].locked) return idx
+    }
+    return null
+  }
+
   const handlePlay = (e?: React.MouseEvent | React.TouchEvent) => {
     if (e) e.stopPropagation()
     player.togglePlay()
@@ -194,8 +207,8 @@ export function AudioPlayer({
             {tracks.length > 1 && (
               <button
                 onClick={() => {
-                  const prevIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length
-                  handleTrackSelect(prevIndex)
+                  const prevIndex = findAdjacentUnlocked(-1)
+                  if (prevIndex !== null) handleTrackSelect(prevIndex)
                 }}
                 className="flex items-center justify-center w-10 h-8"
                 style={{ borderRight: psBorder, borderRadius: 0, background: 'transparent' }}
@@ -208,8 +221,8 @@ export function AudioPlayer({
             {tracks.length > 1 && (
               <button
                 onClick={() => {
-                  const nextIndex = (currentTrackIndex + 1) % tracks.length
-                  handleTrackSelect(nextIndex)
+                  const nextIndex = findAdjacentUnlocked(1)
+                  if (nextIndex !== null) handleTrackSelect(nextIndex)
                 }}
                 className="flex items-center justify-center w-10 h-8"
                 style={{ borderRight: psBorder, borderRadius: 0, background: 'transparent' }}
