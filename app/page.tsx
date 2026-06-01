@@ -952,7 +952,7 @@ const VideoWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
         }}
       >
         <video
-          src={`${BP}/giorgio.mp4`}
+          src={`${BP}/green-screen-vhs.mp4`}
           muted
           autoPlay
           loop
