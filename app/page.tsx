@@ -419,7 +419,7 @@ interface SongFolder {
 
 const ABOUT_SONGS: SongFolder[] = [
   { id: 'back-of-my-car', title: 'BACK OF MY CAR',           artwork: `${BP}/song-artwork.png`,      inspiration: 'Inspiration notes for Back Of My Car go here.',        references: [] },
-  { id: 'get-up',         title: 'GET UP',                   artwork: `${BP}/song-artwork.png`,      inspiration: 'The System were a big influence on this tune, particularly the album X-Periment from 84.', references: [`${BP}/inspo/get-up/the-system-1.jpeg`, `${BP}/inspo/get-up/the-system-studio.jpg`], instruments: [`${BP}/instruments/juno-6.png`, `${BP}/instruments/dx7.png`, `${BP}/instruments/dmx.jpg`] },
+  { id: 'get-up',         title: 'GET UP',                   artwork: `${BP}/song-artwork.png`,      inspiration: 'The System were a big influence on this tune, particularly the album X-Periment from 84.', references: [`${BP}/inspo/get-up/the-system-1.jpeg`, `${BP}/inspo/get-up/the-system-studio.jpg`], instruments: [`${BP}/instruments/juno-6.png`, `${BP}/instruments/dx7.png`, `${BP}/instruments/dmx.png`] },
   { id: 'loving-spell',   title: 'LOVING SPELL',             artwork: `${BP}/song-loving-spell.png`, inspiration: 'Inspiration notes for Loving Spell go here.',          references: [] },
   { id: 'millionaire',    title: 'MILLIONAIRE',              artwork: `${BP}/song-millionaire.png`,  inspiration: 'Inspiration notes for Millionaire go here.',           references: [] },
   { id: 'never-gonna',    title: 'NEVER GONNA (GIVE YOU UP)',artwork: `${BP}/song-never-gonna.png`,  inspiration: 'Inspiration notes for Never Gonna go here.',           references: [] },
