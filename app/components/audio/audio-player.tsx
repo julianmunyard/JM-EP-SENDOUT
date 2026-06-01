@@ -155,8 +155,8 @@ export function AudioPlayer({
       el = new Audio()
       lockedMsgRef.current = el
     }
+    // Volume is baked into the files at 10% gain (iOS Safari ignores el.volume).
     el.src = url
-    el.volume = 0.1
     el.currentTime = 0
     el.play().catch(() => {})
   }, [lockedMessages])
