@@ -855,7 +855,7 @@ const VideoWindow = ({ isOpen, onClose, zIndex, onBringToFront }: SimpleWindowPr
         }}
       >
         <video
-          src={`${BP}/green-screen-vhs.mp4`}
+          src={`${BP}/ep-video.mp4`}
           muted
           autoPlay
           loop
