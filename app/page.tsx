@@ -10,18 +10,20 @@ import type { AudioTrack } from '@/app/types/audio';
 // <img>/<audio>/@font-face — so prefix those manually with BP.
 const BP = '/ep';
 
+// GET UP single. Set a real URL to light up that platform's icon; leave '#'
+// to hide it until the link exists. (YouTube Music / SoundCloud not live yet;
+// Bandcamp doesn't carry this single.)
 const DSP_LINKS = [
-  { name: 'Spotify',       url: '#', Icon: SiSpotify },
-  { name: 'Apple Music',   url: '#', Icon: SiApplemusic },
+  { name: 'Spotify',       url: 'https://open.spotify.com/track/5kAeBvrnzPfjS7nf7ngU8N', Icon: SiSpotify },
+  { name: 'Apple Music',   url: 'https://music.apple.com/us/album/get-up-single/6769345178', Icon: SiApplemusic },
+  { name: 'Tidal',         url: 'https://listen.tidal.com/track/524483751', Icon: SiTidal },
   { name: 'SoundCloud',    url: '#', Icon: SiSoundcloud },
   { name: 'YouTube Music', url: '#', Icon: SiYoutubemusic },
   { name: 'Bandcamp',      url: '#', Icon: SiBandcamp },
-  { name: 'Tidal',         url: '#', Icon: SiTidal },
 ];
 
-// Hidden until the songs are released — flip back to true to show the
-// streaming-service icons (Spotify, Apple Music, etc.) in the player.
-const SHOW_DSP_LINKS = false;
+// Streaming-service icons in the player. Only entries with a real URL render.
+const SHOW_DSP_LINKS = true;
 
 function DspBar() {
   return (
@@ -34,7 +36,7 @@ function DspBar() {
       padding: '12px 6px 4px',
       color: '#fff',
     }}>
-      {DSP_LINKS.map(({ name, url, Icon }) => (
+      {DSP_LINKS.filter(({ url }) => url !== '#').map(({ name, url, Icon }) => (
         <a
           key={name}
           href={url}
