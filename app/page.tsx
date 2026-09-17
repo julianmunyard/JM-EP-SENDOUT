@@ -329,7 +329,6 @@ interface PlayerWindowProps {
 
 const PlayerWindow = ({ isOpen, onClose, zIndex, onBringToFront }: PlayerWindowProps) => {
   const tracks: AudioTrack[] = [
-    { id: 't1', title: 'BACK OF MY CAR',           artist: '', duration: 0, audioUrl: `${BP}/songs/back-of-my-car.mp3`,         storagePath: '', locked: true },
     { id: 't2', title: 'GET UP',                   artist: '', duration: 0, audioUrl: `${BP}/songs/get-up.mp3`,                 storagePath: '' },
     { id: 't3', title: 'LOVING SPELL',             artist: '', duration: 0, audioUrl: `${BP}/songs/loving-spell.mp3`,           storagePath: '', locked: true },
     { id: 't4', title: 'MILLIONAIRE',              artist: '', duration: 0, audioUrl: `${BP}/songs/millionaire.mp3`,            storagePath: '', locked: true },
@@ -424,7 +423,6 @@ interface SongFolder {
 }
 
 const ABOUT_SONGS: SongFolder[] = [
-  { id: 'back-of-my-car', title: 'BACK OF MY CAR',           artwork: `${BP}/song-artwork.png`,      inspiration: 'Inspiration notes for Back Of My Car go here.',        references: [] },
   { id: 'get-up',         title: 'GET UP',                   artwork: `${BP}/song-artwork.png`,      inspiration: 'The System were a big influence on this tune, particularly the album X-Periment from 84.', references: [`${BP}/inspo/get-up/the-system-1.jpeg`, `${BP}/inspo/get-up/the-system-studio.jpg`], instruments: [`${BP}/instruments/juno-6.png`, `${BP}/instruments/dx7.png`, `${BP}/instruments/dmx.png`] },
   { id: 'loving-spell',   title: 'LOVING SPELL',             artwork: `${BP}/song-loving-spell.png`, inspiration: 'Inspiration notes for Loving Spell go here.',          references: [] },
   { id: 'millionaire',    title: 'MILLIONAIRE',              artwork: `${BP}/song-millionaire.png`,  inspiration: 'Inspiration notes for Millionaire go here.',           references: [] },
